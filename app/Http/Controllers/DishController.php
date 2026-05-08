@@ -9,22 +9,23 @@ class DishController extends Controller
 {
 
     public function store(Request $request)
-{
+    {
 
-    $request->validate([
-        'name' => 'required|string|max:255',
-        'description' => 'required',
-        'price' => 'required|numeric|min:0'
-    ]);
+        $request->validate([
+            'name' => 'required|string|max:255',
+            'description' => 'required',
+            'price' => 'required|numeric|min:0'
 
-    Dish::create([
-        'name' => $request->name,
-        'description' => $request->description,
-        'price' => $request->price
-    ]);
+        ]);
 
-    return redirect()->route('dishes.index');
-}
+        Dish::create([
+            'name' => $request->name,
+            'description' => $request->description,
+            'price' => $request->price
+        ]);
+
+    
+    }
 
     /**
      * Display a listing of the resource.
@@ -53,4 +54,31 @@ class DishController extends Controller
         return redirect()->route('dishes.index');
     }
 
+    public function update(Request $request, string $id)
+    {
+        $request->validate([
+            'name' => 'required|string|max:255',
+            'description' => 'required',
+            'price' => 'required|numeric|min:0'
+        ]);
+
+        $dish = Dish::findOrFail($id);
+
+        $dish->update([
+            'name' => $request->name,
+            'description' => $request->description,
+            'price' => $request->price
+        ]);
+
+        return redirect()->route('dishes.index')
+        ->with('success', 'Piatto aggiornato con successo!');
+    }
+
+
+    public function edit(string $id)
+    {
+        $dish = \App\Models\Dish::findOrFail($id);
+
+        return view('dishes.edit', compact('dish'));
+    }
 }

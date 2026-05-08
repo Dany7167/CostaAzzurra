@@ -11,15 +11,15 @@ use Laravel\Fortify\TwoFactorAuthenticatable;
 use Laravel\Jetstream\HasProfilePhoto;
 use Laravel\Sanctum\HasApiTokens;
 
-
 class User extends Authenticatable
 {
     use HasRoles;
     use HasApiTokens;
     use Notifiable;
-    protected $fillable = [
-    'name',
-    'email',
-    'password',
-];
+    protected $fillable = 
+    [
+        'name',
+        'email',
+        'password',
+    ];
 }
