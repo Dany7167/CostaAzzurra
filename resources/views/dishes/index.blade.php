@@ -7,5 +7,20 @@
         <p>{{ $dish->description }}</p>
 
         <strong>{{ $dish->price }} €</strong>
+
+        @role('admin')
+            <form action="{{ route('dishes.destroy', $dish->id) }}" method="POST">
+                @csrf
+                @method('DELETE')
+
+                <button 
+                    type="submit"
+                    onclick="return confirm('Sei sicuro di voler eliminare questo piatto?')"
+                >
+                    Elimina
+                </button>
+            </form>
+        @endrole
+
     </div>
 @endforeach
