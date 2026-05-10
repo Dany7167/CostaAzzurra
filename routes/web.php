@@ -7,8 +7,9 @@ Route::resource('dishes', DishController::class)
     ->middleware('role:admin')
     ->except(['index', 'show']);
     Route::get('/dishes', [DishController::class, 'index'])->name('dishes.index');
-Route::get('/', function () {
-    return view('welcome');
+
+    Route::get('/', function () {
+    return view('home');
 });
 
 Route::middleware([
