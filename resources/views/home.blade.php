@@ -17,9 +17,9 @@
 
         <a href="/">Home</a>
 
-        <a href="/dishes">
-            Menu
-        </a>
+        <a href="/dishes">Menu </a>
+        
+        <a href="/prenotazioni">Prenota </a>
 
         
         </div>

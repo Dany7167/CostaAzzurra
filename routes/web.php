@@ -2,6 +2,18 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\DishController;
+use App\Http\Controllers\ReservationController;
+
+Route::get('/reservations/create', [ReservationController::class, 'create']);
+Route::post('/reservations', [ReservationController::class, 'store']);
+
+Route::delete('/admin/reservations/{id}', [ReservationController::class, 'destroy'])
+    ->middleware('role:admin')
+    ->name('reservations.destroy');
+
+Route::get('/reservations', [ReservationController::class, 'index'])
+    ->middleware('role:admin')
+    ->name('reservations.index');
 
 Route::resource('dishes', DishController::class)
     ->middleware('role:admin')
