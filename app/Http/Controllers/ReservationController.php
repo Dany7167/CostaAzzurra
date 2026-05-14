@@ -19,7 +19,10 @@ class ReservationController extends Controller
             'email' => 'required|email',
             'date' => 'required',
             'time' => 'required',
-            'guests' => 'required|integer|min:1',
+            'guests' => 'required|integer|min:1|max:15',
+            'notes' => 'nullable',
+            ], [
+                'guests.max' => 'Non puoi prenotare per più di 15 persone.',
         ]);
 
         Reservation::create([

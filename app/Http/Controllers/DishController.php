@@ -14,9 +14,11 @@ class DishController extends Controller
         $request->validate([
             'name' => 'required|string|max:255',
             'description' => 'required',
-            'price' => 'required|numeric|min:0'
+            'price' => 'required|numeric|min:0|max:99999.99',
+    ], [
+        'price.max' => 'Il prezzo non può superare 99999.99 €',
+    ]);
 
-        ]);
 
         Dish::create([
             'name' => $request->name,
@@ -24,7 +26,7 @@ class DishController extends Controller
             'price' => $request->price
         ]);
 
-    
+        
     }
 
     /**
