@@ -1,3 +1,4 @@
+@include('layouts.navbar')
 <!DOCTYPE html>
 <html lang="it">
 <head>
@@ -11,6 +12,32 @@
 </head>
 <body>
 
+    <section class="hero">
+
+    <div class="hero-overlay">
+
+        <h1>La Costa Azzurra</h1>
+
+        <p>
+            Sapori mediterranei nel cuore della città
+        </p>
+
+        <div class="hero-buttons">
+
+            <a href="/dishes" class="btn-menu">
+                Scopri il Menu
+            </a>
+
+            <a href="/reservations/create" class="btn-book">
+                Prenota un tavolo
+            </a>
+
+        </div>
+
+    </div>
+
+    </section>
+    <!--
     <nav style="display:flex; justify-content:space-between; padding:20px; align-items:center;">
 
         <div style="display:flex; gap:20px;">
@@ -18,45 +45,86 @@
         <a href="/">Home</a>
 
         <a href="/dishes">Menu </a>
-        
-        <a href="/prenotazioni">Prenota </a>
+       
+        @auth
+        <a href="/reservations/create">Prenota</a>
+        @endauth
 
         
         </div>
 
         <div style="display:flex; gap:20px; align-items:center;">
 
-        <a 
-            href="https://www.instagram.com/la_costa_azzurra_castelmella_/"
-            target="_blank"
-            style="font-size:24px;"
-        >
+        <a href="https://www.instagram.com/la_costa_azzurra_castelmella_/" target="_blank" style="font-size:24px;">
             <i class="fa-brands fa-instagram"></i>
         </a>
 
-        <a href="/login">
-            Login
-        </a>
+        @guest
+        <a href="/login">Login</a>
 
-        <a href="/register">
-            Registrati
-        </a>
+        <a href="/register">Registrati</a>
+        @endguest
+
+        @auth
+        <span>Ciao, {{ Auth::user()->name }}</span>
+
+         <form method="POST" action="{{ route('logout') }}">
+        @csrf
+        <button type="submit">Logout</button>
+        </form>
+        @endauth
 
         </div>
+
+        
 
     </nav>
 
     <hr>
 
     <div style="padding:20px;">
-
         <h1>Benvenuti alla Costa Azzurra</h1>
+        <p>Ristorante di pesce sul mare con specialità mediterranee.</p>
+    </div>
+-->
+
+<section class="info-section">
+
+    <!-- Left Side -->
+    <div class="info-text">
+
+        <h2>Dove siamo</h2>
 
         <p>
-            Ristorante di pesce sul mare con specialità mediterranee.
+            Via Quinzano 27<br>
+            25030 Castel Mella (BS)
         </p>
+
+        <a href="https://instagram.com/la_costa_azzurra_castelmella_/"
+           target="_blank"
+           class="instagram-link">
+
+            <i class="fa-brands fa-instagram"></i>
+
+            Seguici su Instagram
+    </a>
 
     </div>
 
+    <!-- Right Side -->
+    <div class="map-container">
+
+        <iframe
+            src="https://www.google.com/maps?q=Via+Quinzano+27+Castel+Mella+BS&output=embed"
+            width="100%"
+            height="100%"
+            style="border:0;"
+            allowfullscreen=""
+            loading="lazy">
+        </iframe>
+
+    </div>
+
+</section>
 </body>
 </html>

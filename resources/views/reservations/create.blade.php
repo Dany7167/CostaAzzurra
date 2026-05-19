@@ -1,8 +1,6 @@
-@extends('layouts.app')
 
-@section('content')
+@include('layouts.navbar')
 
-<h1>Prenota un tavolo</h1>
  @if ($errors->any())
     <div style="color:red; margin-bottom:15px;">
         <ul>
@@ -18,6 +16,73 @@
     </p>
 @endif
 
+<section class="reservation-page">
+
+    <div class="reservation-card">
+
+        <h1>Prenota un tavolo</h1>
+
+        <form method="POST" action="{{ route('reservations.store') }}">
+
+            @csrf
+
+            <!-- Nome -->
+            <input type="text"
+                   name="name"
+                   placeholder="Nome">
+
+            <!-- Email -->
+            <input type="email"
+                   name="email"
+                   placeholder="Email">
+
+            <!-- Data -->
+            <input type="date"
+                   name="date">
+
+            <!-- Orario -->
+            <select name="time">
+
+                <option value="">Seleziona orario</option>
+
+                <optgroup label="🍝 Pranzo">
+                    <option value="12:00">12:00</option>
+                    <option value="12:30">12:30</option>
+                    <option value="13:00">13:00</option>
+                    <option value="13:30">13:30</option>
+                    <option value="14:00">14:00</option>
+                </optgroup>
+
+                <optgroup label="🍽 Cena">
+                    <option value="18:00">18:00</option>
+                    <option value="18:30">18:30</option>
+                    <option value="19:00">19:00</option>
+                    <option value="19:30">19:30</option>
+                    <option value="20:00">20:00</option>
+                </optgroup>
+
+            </select>
+
+            <!-- Persone -->
+            <input type="number"
+                   name="guests"
+                   placeholder="Numero persone">
+
+            <!-- Note -->
+            <textarea name="notes"
+                      placeholder="Eventuali note"></textarea>
+
+            <button type="submit">
+                Prenota
+            </button>
+
+        </form>
+
+    </div>
+
+</section>
+
+<!--
 <form method="POST" action="/reservations">
 
     @csrf
@@ -81,5 +146,4 @@
     </button>
 
 </form>
-
-@endsection
+-->

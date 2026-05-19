@@ -4,8 +4,10 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\DishController;
 use App\Http\Controllers\ReservationController;
 
-Route::get('/reservations/create', [ReservationController::class, 'create']);
-Route::post('/reservations', [ReservationController::class, 'store']);
+Route::get('/reservations/create', [ReservationController::class, 'create'])
+ ->middleware('auth');
+Route::post('/reservations', [ReservationController::class, 'store'])
+->name('reservations.store');
 
 Route::delete('/admin/reservations/{id}', [ReservationController::class, 'destroy'])
     ->middleware('role:admin')
@@ -30,6 +32,6 @@ Route::middleware([
         'verified',
     ])->group(function () {
         Route::get('/dashboard', function () {
-        return view('dashboard');
+        return redirect('/');
     })->name('dashboard');
 });
