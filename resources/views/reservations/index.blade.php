@@ -1,45 +1,103 @@
-@extends('layouts.app')
 
-@section('content')
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestione Prenotazioni</title>
+</head>
 
-<h1>Gestione Prenotazioni</h1>
+@include('layouts.navbar')
 
-@if(session('success'))
-    <p style="color:green;">
-        {{ session('success') }}
-    </p>
-@endif
+<section class="reservations-admin-page">
 
-@foreach($reservations as $reservation)
+    <h1>Prenotazioni</h1>
 
-    <div style="margin-bottom:20px; border:1px solid black; padding:10px;">
+    @if(session('success'))
 
-        <h3>{{ $reservation->name }}</h3>
+        <div class="success-message" id="success-message">
 
-        <p>Email: {{ $reservation->email }}</p>
-        <p>Data: {{ $reservation->date }}</p>
-        <p>Ora: {{ $reservation->time }}</p>
-        <p>Persone: {{ $reservation->guests }}</p>
-        <p>Note: {{ $reservation->notes }}</p>
+            {{ session('success') }}
 
-        <form 
-            action="{{ route('reservations.destroy', $reservation->id) }}" 
-            method="POST"
-        >
-            @csrf
-            @method('DELETE')
+        </div>
 
-            <button 
-                type="submit"
-                onclick="return confirm('Sei sicuro di voler eliminare questa prenotazione?')"
-                style="background:red; color:white; padding:5px 10px; border:none; cursor:pointer;"
-            >
-                Elimina
-            </button>
-        </form>
+    @endif
+
+    <div class="reservations-container">
+
+        @foreach($reservations as $reservation)
+
+            <div class="reservation-admin-card">
+
+                <div class="reservation-top">
+
+                    <h2>{{ $reservation->name }}</h2>
+
+                    <span>
+                        {{ $reservation->date }} • {{ $reservation->time }}
+                    </span>
+
+                </div>
+
+                <div class="reservation-info">
+
+                    <p><strong>Email:</strong> {{ $reservation->email }}</p>
+
+                    <p><strong>Persone:</strong> {{ $reservation->guests }}</p>
+
+                    @if($reservation->notes)
+
+                        <p>
+                            <strong>Note:</strong>
+                            {{ $reservation->notes }}
+                        </p>
+
+                    @endif
+
+                </div>
+
+                <div class="reservation-actions">
+
+                    <form action="{{ route('reservations.destroy', $reservation->id) }}"
+                          method="POST">
+
+                        @csrf
+                        @method('DELETE')
+
+                        <button type="submit"
+                                class="dish-icon delete-btn"
+                                onclick="return confirm('Eliminare prenotazione?')">
+
+                            <i class="fa-solid fa-trash"></i>
+
+                        </button>
+
+                    </form>
+
+                </div>
+
+            </div>
+
+        @endforeach
 
     </div>
 
-@endforeach
+</section>
 
-@endsection
+<script>
+
+    setTimeout(() => {
+
+        const message = document.getElementById('success-message');
+
+        if(message) {
+
+            message.style.opacity = '0';
+
+            setTimeout(() => {
+                message.remove();
+            }, 500);
+
+        }
+
+    }, 3000);
+
+</script>

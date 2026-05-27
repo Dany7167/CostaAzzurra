@@ -11,6 +11,7 @@ class Dish extends Model
         'name',
         'description',
         'price',
-        'image'
+        'image',
+        'category'
     ];
 }

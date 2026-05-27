@@ -17,13 +17,29 @@ class ReservationController extends Controller
         $request->validate([
             'name' => 'required',
             'email' => 'required|email',
-            'date' => 'required',
+            'date' => 'required|date|after_or_equal:today',
             'time' => 'required',
             'guests' => 'required|integer|min:1|max:15',
             'notes' => 'nullable',
             ], [
+                'name.required' => 'Inserisci il nome.',
+
+                'email.required' => 'Inserisci l’email.',
+
+                'email.email' => 'Inserisci un’email valida.',
+
+                'date.required' => 'Seleziona una data.',
+
+                'date.after_or_equal' => 'Non puoi prenotare per una data passata.',
+
+                'time.required' => 'Seleziona un orario.',
+
+                'guests.required' => 'Inserisci il numero di persone.',
+
                 'guests.max' => 'Non puoi prenotare per più di 15 persone.',
-        ]);
+
+                'guests.min' => 'Deve esserci almeno 1 persona.',
+            ]);
 
         Reservation::create([
             'name' => $request->name,

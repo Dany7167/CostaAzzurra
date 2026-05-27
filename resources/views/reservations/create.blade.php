@@ -1,21 +1,48 @@
-
 @include('layouts.navbar')
 
  @if ($errors->any())
-    <div style="color:red; margin-bottom:15px;">
+
+    <div class="error-message"
+         id="error-message">
+
         <ul>
+
             @foreach ($errors->all() as $error)
+
                 <li>{{ $error }}</li>
+
             @endforeach
+
         </ul>
+
     </div>
+
 @endif
+<!--
 @if(session('success'))
     <p style="color:green;">
         {{ session('success') }}
     </p>
 @endif
+-->
+@if(session('success'))
 
+   <div class="success-message"
+        id="success-message">
+
+        {{ session('success') }}
+
+    </div>
+
+@endif
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Prenota un tavolo</title>
+
+</head>
 <section class="reservation-page">
 
     <div class="reservation-card">
@@ -82,68 +109,40 @@
 
 </section>
 
-<!--
-<form method="POST" action="/reservations">
+<script>
 
-    @csrf
+    setTimeout(() => {
 
-    <div>
-        <input type="text" name="name" placeholder="Nome">
-    </div>
+        const message = document.getElementById('error-message');
 
-    <br>
+        if(message) {
 
-    <div>
-        <input type="email" name="email" placeholder="Email">
-    </div>
+            message.style.opacity = '0';
 
-    <br>
+            setTimeout(() => {
+                message.remove();
+            }, 500);
+        }
 
-    <div>
-        <input type="date" name="date">
-    </div>
+    }, 3000);
 
-    <br>
+</script>
 
-    <div>
-        <select name="time">
-            <option value="">Seleziona orario</option>
+<script>
 
-            <optgroup label="🍝 Pranzo">
-                <option value="12:00">12:00</option>
-                <option value="12:30">12:30</option>
-                <option value="13:00">13:00</option>
-                <option value="13:30">13:30</option>
-                <option value="14:00">14:00</option>
-            </optgroup>
+    setTimeout(() => {
 
-            <optgroup label="🍽 Cena">
-                <option value="18:00">18:00</option>
-                <option value="18:30">18:30</option>
-                <option value="19:00">19:00</option>
-                <option value="19:30">19:30</option>
-                <option value="20:00">20:00</option>
-            </optgroup>
-        </select>
-    </div>
+        const message = document.getElementById('success-message');
 
-    <br>
+        if(message) {
 
-    <div>
-        <input type="number" name="guests" placeholder="Numero persone">
-    </div>
+            message.style.opacity = '0';
 
-    <br>
+            setTimeout(() => {
+                message.remove();
+            }, 500);
+        }
 
-    <div>
-        <textarea name="notes" placeholder="Note"></textarea>
-    </div>
+    }, 3000);
 
-    <br>
-
-    <button type="submit" style="background:green; color:white; padding:10px 15px; border:none; border-radius:5px; cursor:pointer;">
-    Prenota
-    </button>
-
-</form>
--->
+</script>

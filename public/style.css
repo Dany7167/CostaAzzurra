@@ -1,28 +1,63 @@
-/*-----navbar-----*/
+/*----- VARIABLES -----*/
+:root {
+    /* Colors */
+    --color-gold:        #c89b3c;
+    --color-gold-dark:   #b68a2f;
+    --color-gold-darker: #a87d28;
+    --color-gold-soft:   #b08b30;
+    --color-bg:          #f7f5ef;
+    --color-text:        #1f2937;
+    --color-border-gold: #e5d3a1;
+    --color-white:       #ffffff;
+
+    /* Fonts */
+    --font-display: 'Futura';
+    --font-body:    'Inter', system-ui, -apple-system, sans-serif;
+
+    /* Misc */
+    --radius-sm: 6px;
+    --radius-md: 8px;
+    --radius-lg: 10px;
+    --radius-xl: 12px;
+    --transition: 0.3s;
+    --shadow-card:  0 8px 30px rgba(0,0,0,0.08);
+    --shadow-soft:  0 8px 30px rgba(0,0,0,0.05);
+    --shadow-map:   0 4px 20px rgba(0,0,0,0.15);
+}
+
+/*----- GLOBAL -----*/
 body {
     margin: 0;
     padding: 0;
+    background: var(--color-bg);
 }
 
+/*----- NAVBAR -----*/
 .navbar {
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 20px 40px;
-    background: #f7f5ef;
-    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    background: var(--color-bg);
+    font-family: var(--font-body);
     font-size: 17px;
     font-weight: 500;
-    border-bottom: 2px solid #c89b3c;
+    border-bottom: 2px solid var(--color-gold);
 }
 
 .navbar a {
     text-decoration: none;
-    color: #1f2937;
-    transition: 0.3s;
+    color: var(--color-text);
+    transition: var(--transition);
 }
 
-.nav-links, .nav-right {
+.navbar a:hover,
+.logout-btn:hover {
+    color: var(--color-gold);
+}
+
+.nav-links,
+.nav-right {
     display: flex;
     gap: 30px;
     align-items: center;
@@ -34,44 +69,35 @@ body {
     margin: 0;
 }
 
-.navbar a:hover {
-    color: #c89b3c;
-}
-
 .logo {
-    font-family: "Fleur De Leah", cursive;
+    font-family: var(--font-display);
     font-size: 44px;
-    color: #c89b3c;
+    color: var(--color-gold);
     text-decoration: none;
     font-weight: 400;
 }
 
 .subtitle {
     font-size: 16px;
-    color: #b08b30;
+    color: var(--color-gold-soft);
     margin-top: -5px;
 }
 
 .logout-btn {
-    padding: 0%;
+    padding: 0;
     border: none;
     background: none;
     cursor: pointer;
-    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    font-family: var(--font-body);
     font-size: 17px;
     font-weight: 500;
-    color: #1f2937;
-    transition: 0.3s;
+    color: var(--color-text);
+    transition: var(--transition);
     display: flex;
     align-items: center;
 }
 
-.logout-btn:hover {
-    color: #c89b3c;
-}
-
-/*----- HERO SECTION -----*/
-
+/*----- HERO -----*/
 .hero {
     height: 90vh;
     background-image: url('/images/ristorante.jpg');
@@ -91,17 +117,17 @@ body {
     justify-content: center;
     align-items: center;
     text-align: center;
-    color: white;
+    color: var(--color-white);
 }
 
 .hero h1 {
-    font-family: "Fleur De Leah", cursive;
+    font-family: var(--font-display);
     font-size: 120px;
     margin: 0;
 }
 
 .hero p {
-    font-family: 'Inter', sans-serif;
+    font-family: var(--font-body);
     font-size: 22px;
     margin-top: 10px;
     margin-bottom: 40px;
@@ -117,12 +143,12 @@ body {
     padding: 14px 28px;
     border-radius: 5px;
     text-decoration: none;
-    font-family: 'Inter', sans-serif;
-    transition: 0.3s;
+    font-family: var(--font-body);
+    transition: var(--transition);
 }
 
 .btn-menu {
-    background: white;
+    background: var(--color-white);
     color: black;
 }
 
@@ -131,23 +157,22 @@ body {
 }
 
 .btn-book {
-    background: #c89b3c;
-    color: white;
+    background: var(--color-gold);
+    color: var(--color-white);
 }
 
 .btn-book:hover {
-    background: #b68a2f;
+    background: var(--color-gold-dark);
 }
 
 /*----- INFO SECTION -----*/
-
 .info-section {
     display: flex;
     justify-content: space-between;
     align-items: center;
     gap: 50px;
     padding: 80px 60px;
-    background: #f7f5ef;
+    background: var(--color-bg);
 }
 
 .info-text {
@@ -155,16 +180,16 @@ body {
 }
 
 .info-text h2 {
-    font-family: "Fleur De Leah", cursive;
+    font-family: var(--font-display);
     font-size: 70px;
-    color: #c89b3c;
+    color: var(--color-gold);
     margin-bottom: 20px;
 }
 
 .info-text p {
-    font-family: 'Inter', sans-serif;
+    font-family: var(--font-body);
     font-size: 18px;
-    color: #1f2937;
+    color: var(--color-text);
     line-height: 1.8;
 }
 
@@ -174,29 +199,28 @@ body {
     gap: 10px;
     margin-top: 20px;
     text-decoration: none;
-    color: #c89b3c;
+    color: var(--color-gold);
     font-weight: 600;
-    transition: 0.3s;
+    transition: var(--transition);
 }
 
 .instagram-link:hover {
-    color: #b68a2f;
+    color: var(--color-gold-dark);
 }
 
 .map-container {
     width: 50%;
     height: 400px;
-    border-radius: 10px;
+    border-radius: var(--radius-lg);
     overflow: hidden;
-    box-shadow: 0 4px 20px rgba(0,0,0,0.15);
-    border: 2px solid #c89b3c;
+    box-shadow: var(--shadow-map);
+    border: 2px solid var(--color-gold);
 }
 
 /*----- RESERVATION PAGE -----*/
-
 .reservation-page {
     min-height: 100vh;
-    background: #f7f5ef;
+    background: var(--color-bg);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -206,17 +230,17 @@ body {
 .reservation-card {
     width: 100%;
     max-width: 550px;
-    background: white;
+    background: var(--color-white);
     padding: 50px;
-    border-radius: 12px;
-    box-shadow: 0 8px 30px rgba(0,0,0,0.08);
-    border: 1px solid #e5d3a1;
+    border-radius: var(--radius-xl);
+    box-shadow: var(--shadow-card);
+    border: 1px solid var(--color-border-gold);
 }
 
 .reservation-card h1 {
-    font-family: "Fleur De Leah", cursive;
+    font-family: var(--font-display);
     font-size: 72px;
-    color: #c89b3c;
+    color: var(--color-gold);
     text-align: center;
     margin-bottom: 40px;
 }
@@ -232,9 +256,9 @@ body {
 .reservation-card textarea {
     padding: 14px;
     border: 1px solid #d6d3d1;
-    border-radius: 6px;
+    border-radius: var(--radius-sm);
     font-size: 16px;
-    font-family: 'Inter', sans-serif;
+    font-family: var(--font-body);
     background: #fafafa;
 }
 
@@ -244,108 +268,368 @@ body {
 }
 
 .reservation-card button {
-    background: #c89b3c;
-    color: white;
+    background: var(--color-gold);
+    color: var(--color-white);
     border: none;
     padding: 14px;
-    border-radius: 6px;
+    border-radius: var(--radius-sm);
     font-size: 17px;
     cursor: pointer;
-    transition: 0.3s;
-    font-family: 'Inter', sans-serif;
+    transition: var(--transition);
+    font-family: var(--font-body);
     font-weight: 600;
 }
 
 .reservation-card button:hover {
-    background: #b68a2f;
+    background: var(--color-gold-dark);
 }
 
-/*----- AUTH PAGES -----*/
-
+/*----- AUTH PAGE -----*/
 .auth-page {
     min-height: 100vh;
-
-    background: #f7f5ef;
-
+    background: var(--color-bg);
     display: flex;
-
     justify-content: center;
     align-items: center;
-
-    padding: 60px 20px;
 }
 
 .auth-card {
-    width: 100%;
-    max-width: 500px;
-
-    background: white;
-
+    width: 400px;
+    background: var(--color-white);
     padding: 50px;
-
-    border-radius: 12px;
-
-    box-shadow: 0 8px 30px rgba(0,0,0,0.08);
-
-    border: 1px solid #e5d3a1;
+    border-radius: var(--radius-xl);
+    box-shadow: var(--shadow-card);
+    border: 1px solid var(--color-border-gold);
 }
 
 .auth-card h1 {
-    font-family: "Fleur De Leah", cursive;
-
-    font-size: 70px;
-
-    color: #c89b3c;
-
     text-align: center;
-
-    margin-bottom: 40px;
+    margin-bottom: 35px;
+    font-family: var(--font-display);
+    font-size: 55px;
+    color: var(--color-gold);
 }
 
 .auth-card form {
     display: flex;
-
     flex-direction: column;
-
-    gap: 20px;
+    gap: 18px;
 }
 
 .auth-card input {
     padding: 14px;
-
-    border: 1px solid #d6d3d1;
-
-    border-radius: 6px;
-
+    border: 1px solid #ddd;
+    border-radius: var(--radius-md);
     font-size: 16px;
-
-    font-family: 'Inter', sans-serif;
-
-    background: #fafafa;
+    font-family: var(--font-body);
 }
 
 .auth-card button {
-    background: #c89b3c;
-
-    color: white;
-
+    background: var(--color-gold);
+    color: var(--color-white);
     border: none;
-
     padding: 14px;
-
-    border-radius: 6px;
-
-    font-size: 17px;
-
+    border-radius: var(--radius-md);
     cursor: pointer;
+    font-size: 16px;
+    font-family: var(--font-body);
+    transition: var(--transition);
+}
 
-    transition: 0.3s;
+.auth-card button:hover {
+    background: var(--color-gold-dark);
+}
 
-    font-family: 'Inter', sans-serif;
+/* HOME ICON */
+.home-icon {
+    position: absolute;
+    top: 30px;
+    left: 40px;
+    color: var(--color-gold);
+    font-size: 28px;
+    transition: var(--transition);
+    text-decoration: none;
+}
+
+.home-icon:hover {
+    color: var(--color-gold-darker);
+    transform: scale(1.1);
+}
+
+/*----- MENU PAGE -----*/
+.menu-page {
+    min-height: 100vh;
+    background: var(--color-bg);
+    padding: 80px 20px;
+}
+
+.menu-page h1 {
+    text-align: center;
+    font-family: var(--font-display);
+    font-size: 90px;
+    color: var(--color-gold);
+    margin-bottom: 60px;
+}
+
+.menu-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    max-width: 1000px;
+    margin: 0 auto 60px auto;
+}
+
+.menu-btn {
+    background: var(--color-white);
+    border: 1px solid var(--color-border-gold);
+    padding: 18px 35px;
+    border-radius: var(--radius-lg);
+    font-size: 18px;
+    font-family: var(--font-body);
+    cursor: pointer;
+    transition: var(--transition);
+    min-width: 180px;
+}
+
+.menu-btn:hover {
+    background: var(--color-gold);
+    color: var(--color-white);
+    transform: translateY(-3px);
+}
+
+.menu-category-content {
+    display: none;
+    max-width: 900px;
+    margin: auto;
+    background: var(--color-white);
+    padding: 40px;
+    border-radius: var(--radius-xl);
+    border: 1px solid var(--color-border-gold);
+    box-shadow: var(--shadow-soft);
+}
+
+/*----- DISH ITEM -----*/
+.dish-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding: 25px 0;
+    border-bottom: 1px solid #eee;
+    gap: 40px;
+}
+
+.dish-info {
+    flex: 1;
+}
+
+.dish-info h3 {
+    margin: 0;
+    font-size: 24px;
+    color: var(--color-text);
+}
+
+.dish-info p {
+    margin-top: 6px;
+    color: #666;
+    max-width: 650px;
+}
+
+/* DISH ACTIONS */
+.dish-actions {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 15px;
+    min-width: 180px;
+    white-space: nowrap;
+}
+
+.dish-actions form {
+    margin: 0;
+}
+
+.dish-price {
+    font-size: 22px;
+    font-weight: bold;
+    color: var(--color-gold);
+}
+
+/* DISH ICON */
+.dish-icon {
+    border: none;
+    background: none;
+    color: var(--color-gold);
+    cursor: pointer;
+    font-size: 18px;
+    transition: var(--transition);
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.dish-icon:hover {
+    color: var(--color-gold-darker);
+    transform: scale(1.1);
+}
+
+.delete-btn {
+    padding: 0;
+    margin: 0;
+}
+
+/*----- MESSAGES -----*/
+.success-message {
+    max-width: 900px;
+    margin: 30px auto;
+    background: #d1fae5;
+    color: #065f46;
+    padding: 18px;
+    border-radius: var(--radius-md);
+    border: 1px solid #10b981;
+    text-align: center;
+    font-family: var(--font-body);
+    font-weight: 500;
+    transition: opacity 0.5s ease;
+}
+
+.error-message {
+    max-width: 550px;
+    margin: 30px auto;
+    background: #fee2e2;
+    color: #991b1b;
+    padding: 18px;
+    border-radius: var(--radius-md);
+    border: 1px solid #ef4444;
+    font-family: var(--font-body);
+    transition: opacity 0.5s ease;
+}
+
+.error-message ul {
+    margin: 0;
+    padding-left: 20px;
+}
+
+/*----- ADMIN ADD DISH LINK -----*/
+.admin-add-link {
+    position: absolute;
+    top: 140px;
+    right: 50px;
+    text-decoration: none;
+    color: var(--color-text);
+    font-family: var(--font-body);
+    font-size: 17px;
+    font-weight: 500;
+    transition: var(--transition);
+}
+
+.admin-add-link:hover {
+    color: var(--color-gold);
+}
+
+
+/*----------------TEST BLOCK-----------------*/
+
+/*----- ADMIN RESERVATIONS PAGE -----*/
+
+.reservations-admin-page {
+
+    min-height: 100vh;
+
+    background: var(--color-bg);
+
+    padding: 80px 20px;
+}
+
+.reservations-admin-page h1 {
+
+    text-align: center;
+
+    font-family: var(--font-display);
+
+    font-size: 80px;
+
+    color: var(--color-gold);
+
+    margin-bottom: 60px;
+}
+
+.reservations-container {
+
+    max-width: 900px;
+
+    margin: auto;
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 25px;
+}
+
+/* CARD */
+
+.reservation-admin-card {
+
+    background: white;
+
+    border: 1px solid var(--color-border-gold);
+
+    border-radius: var(--radius-xl);
+
+    padding: 30px;
+
+    box-shadow: var(--shadow-soft);
+}
+
+/* TOP */
+
+.reservation-top {
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    margin-bottom: 20px;
+}
+
+.reservation-top h2 {
+
+    margin: 0;
+
+    color: var(--color-text);
+
+    font-size: 28px;
+}
+
+.reservation-top span {
+
+    color: var(--color-gold);
 
     font-weight: 600;
 }
 
-.auth-card button:hover {
-    background: #b68a2f;
+/* INFO */
+
+.reservation-info p {
+
+    margin: 10px 0;
+
+    color: #555;
+
+    line-height: 1.6;
+}
+
+/* ACTIONS */
+
+.reservation-actions {
+
+    margin-top: 20px;
+
+    display: flex;
+
+    justify-content: flex-end;
 }

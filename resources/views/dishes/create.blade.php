@@ -12,6 +12,26 @@
 <form action="{{ route('dishes.store') }}" method="POST">
     @csrf
 
+    <select name="category">
+
+    <option value="Antipasti">Antipasti</option>
+
+    <option value="Primi">Primi</option>
+
+    <option value="Secondi">Secondi</option>
+
+    <option value="Formaggi">Formaggi</option>
+
+    <option value="Pizze">Pizze</option>
+
+    <option value="Contorni">Contorni</option>
+
+    <option value="Dolci">Dolci</option>
+
+    <option value="Bevande">Bevande</option>
+
+</select>
+
     <div>
         <label>Nome</label>
         <input type="text" name="name" required>

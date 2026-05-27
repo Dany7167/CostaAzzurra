@@ -15,7 +15,7 @@
 
         <a href="/">Home</a>
 
-        <a href="/dishes">Menu</a>
+        <a href="/dishes">Menù</a>
 
     </div>
 
@@ -41,8 +41,21 @@
             </form>
         @endauth
 
+        @role('admin')
+        <a href="/reservations" class="btn-prenota">
+            Prenotazioni
+        </a>
+        @endrole
+
+        @unlessrole('admin')
         <a href="/reservations/create" class="btn-prenota">
             Prenota
         </a>
+        @endunlessrole
+
+        <a>
+             Tel: +39 030 268 0614
+        </a>
+
     </div>
 </nav>

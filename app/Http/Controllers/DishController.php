@@ -15,16 +15,21 @@ class DishController extends Controller
             'name' => 'required|string|max:255',
             'description' => 'required',
             'price' => 'required|numeric|min:0|max:99999.99',
-    ], [
-        'price.max' => 'Il prezzo non può superare 99999.99 €',
-    ]);
+        ], [
+            'price.max' => 'Il prezzo non può superare 99999.99 €',
+            ]);
 
 
         Dish::create([
             'name' => $request->name,
             'description' => $request->description,
-            'price' => $request->price
+            'price' => $request->price,
+            'category' => $request->category
         ]);
+
+        return redirect()
+        ->route('dishes.index')
+        ->with('success', 'Piatto creato correttamente!');
 
         
     }
@@ -53,7 +58,8 @@ class DishController extends Controller
 
         $dish->delete();
 
-        return redirect()->route('dishes.index');
+        return redirect()->route('dishes.index')
+        ->with('success', 'Piatto eliminato correttamente!');
     }
 
     public function update(Request $request, string $id)

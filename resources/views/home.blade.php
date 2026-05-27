@@ -37,56 +37,6 @@
     </div>
 
     </section>
-    <!--
-    <nav style="display:flex; justify-content:space-between; padding:20px; align-items:center;">
-
-        <div style="display:flex; gap:20px;">
-
-        <a href="/">Home</a>
-
-        <a href="/dishes">Menu </a>
-       
-        @auth
-        <a href="/reservations/create">Prenota</a>
-        @endauth
-
-        
-        </div>
-
-        <div style="display:flex; gap:20px; align-items:center;">
-
-        <a href="https://www.instagram.com/la_costa_azzurra_castelmella_/" target="_blank" style="font-size:24px;">
-            <i class="fa-brands fa-instagram"></i>
-        </a>
-
-        @guest
-        <a href="/login">Login</a>
-
-        <a href="/register">Registrati</a>
-        @endguest
-
-        @auth
-        <span>Ciao, {{ Auth::user()->name }}</span>
-
-         <form method="POST" action="{{ route('logout') }}">
-        @csrf
-        <button type="submit">Logout</button>
-        </form>
-        @endauth
-
-        </div>
-
-        
-
-    </nav>
-
-    <hr>
-
-    <div style="padding:20px;">
-        <h1>Benvenuti alla Costa Azzurra</h1>
-        <p>Ristorante di pesce sul mare con specialità mediterranee.</p>
-    </div>
--->
 
 <section class="info-section">
 
@@ -97,7 +47,10 @@
 
         <p>
             Via Quinzano 27<br>
-            25030 Castel Mella (BS)
+            25030 Castel Mella (BS)<br>
+            Per prenotare, clicca in alto il tasto<br>
+            oppure<br>
+            chiamare al: +39 030 268 0614
         </p>
 
         <a href="https://instagram.com/la_costa_azzurra_castelmella_/"
