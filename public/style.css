@@ -9,11 +9,11 @@
     --color-text:        #1f2937;
     --color-border-gold: #e5d3a1;
     --color-white:       #ffffff;
-
+ 
     /* Fonts */
     --font-display: 'Futura';
     --font-body:    'Inter', system-ui, -apple-system, sans-serif;
-
+ 
     /* Misc */
     --radius-sm: 6px;
     --radius-md: 8px;
@@ -24,14 +24,14 @@
     --shadow-soft:  0 8px 30px rgba(0,0,0,0.05);
     --shadow-map:   0 4px 20px rgba(0,0,0,0.15);
 }
-
+ 
 /*----- GLOBAL -----*/
 body {
     margin: 0;
     padding: 0;
     background: var(--color-bg);
 }
-
+ 
 /*----- NAVBAR -----*/
 .navbar {
     display: flex;
@@ -44,31 +44,31 @@ body {
     font-weight: 500;
     border-bottom: 2px solid var(--color-gold);
 }
-
+ 
 .navbar a {
     text-decoration: none;
     color: var(--color-text);
     transition: var(--transition);
 }
-
+ 
 .navbar a:hover,
 .logout-btn:hover {
     color: var(--color-gold);
 }
-
+ 
 .nav-links,
 .nav-right {
     display: flex;
     gap: 30px;
     align-items: center;
 }
-
+ 
 .nav-right form {
     display: flex;
     align-items: center;
     margin: 0;
 }
-
+ 
 .logo {
     font-family: var(--font-display);
     font-size: 44px;
@@ -76,13 +76,13 @@ body {
     text-decoration: none;
     font-weight: 400;
 }
-
+ 
 .subtitle {
     font-size: 16px;
     color: var(--color-gold-soft);
     margin-top: -5px;
 }
-
+ 
 .logout-btn {
     padding: 0;
     border: none;
@@ -96,7 +96,7 @@ body {
     display: flex;
     align-items: center;
 }
-
+ 
 /*----- HERO -----*/
 .hero {
     height: 90vh;
@@ -107,7 +107,7 @@ body {
     justify-content: center;
     align-items: center;
 }
-
+ 
 .hero-overlay {
     background: rgba(0, 0, 0, 0.45);
     width: 100%;
@@ -119,25 +119,25 @@ body {
     text-align: center;
     color: var(--color-white);
 }
-
+ 
 .hero h1 {
     font-family: var(--font-display);
     font-size: 120px;
     margin: 0;
 }
-
+ 
 .hero p {
     font-family: var(--font-body);
     font-size: 22px;
     margin-top: 10px;
     margin-bottom: 40px;
 }
-
+ 
 .hero-buttons {
     display: flex;
     gap: 20px;
 }
-
+ 
 .btn-menu,
 .btn-book {
     padding: 14px 28px;
@@ -146,25 +146,25 @@ body {
     font-family: var(--font-body);
     transition: var(--transition);
 }
-
+ 
 .btn-menu {
     background: var(--color-white);
     color: black;
 }
-
+ 
 .btn-menu:hover {
     background: #e5e5e5;
 }
-
+ 
 .btn-book {
     background: var(--color-gold);
     color: var(--color-white);
 }
-
+ 
 .btn-book:hover {
     background: var(--color-gold-dark);
 }
-
+ 
 /*----- INFO SECTION -----*/
 .info-section {
     display: flex;
@@ -174,25 +174,25 @@ body {
     padding: 80px 60px;
     background: var(--color-bg);
 }
-
+ 
 .info-text {
     width: 45%;
 }
-
+ 
 .info-text h2 {
     font-family: var(--font-display);
     font-size: 70px;
     color: var(--color-gold);
     margin-bottom: 20px;
 }
-
+ 
 .info-text p {
     font-family: var(--font-body);
     font-size: 18px;
     color: var(--color-text);
     line-height: 1.8;
 }
-
+ 
 .instagram-link {
     display: inline-flex;
     align-items: center;
@@ -203,11 +203,11 @@ body {
     font-weight: 600;
     transition: var(--transition);
 }
-
+ 
 .instagram-link:hover {
     color: var(--color-gold-dark);
 }
-
+ 
 .map-container {
     width: 50%;
     height: 400px;
@@ -216,161 +216,164 @@ body {
     box-shadow: var(--shadow-map);
     border: 2px solid var(--color-gold);
 }
-
-/*----- RESERVATION PAGE -----*/
-.reservation-page {
+ 
+/*----- PAGE LAYOUTS -----*/
+/* Pagine centrate (flex) */
+.reservation-page,
+.auth-page,
+.dish-create-page {
     min-height: 100vh;
     background: var(--color-bg);
     display: flex;
     justify-content: center;
     align-items: center;
+}
+ 
+.reservation-page,
+.dish-create-page {
     padding: 60px 20px;
 }
-
-.reservation-card {
-    width: 100%;
-    max-width: 550px;
-    background: var(--color-white);
-    padding: 50px;
-    border-radius: var(--radius-xl);
-    box-shadow: var(--shadow-card);
-    border: 1px solid var(--color-border-gold);
-}
-
-.reservation-card h1 {
-    font-family: var(--font-display);
-    font-size: 72px;
-    color: var(--color-gold);
-    text-align: center;
-    margin-bottom: 40px;
-}
-
-.reservation-card form {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-}
-
-.reservation-card input,
-.reservation-card select,
-.reservation-card textarea {
-    padding: 14px;
-    border: 1px solid #d6d3d1;
-    border-radius: var(--radius-sm);
-    font-size: 16px;
-    font-family: var(--font-body);
-    background: #fafafa;
-}
-
-.reservation-card textarea {
-    min-height: 120px;
-    resize: none;
-}
-
-.reservation-card button {
-    background: var(--color-gold);
-    color: var(--color-white);
-    border: none;
-    padding: 14px;
-    border-radius: var(--radius-sm);
-    font-size: 17px;
-    cursor: pointer;
-    transition: var(--transition);
-    font-family: var(--font-body);
-    font-weight: 600;
-}
-
-.reservation-card button:hover {
-    background: var(--color-gold-dark);
-}
-
-/*----- AUTH PAGE -----*/
-.auth-page {
-    min-height: 100vh;
-    background: var(--color-bg);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.auth-card {
-    width: 400px;
-    background: var(--color-white);
-    padding: 50px;
-    border-radius: var(--radius-xl);
-    box-shadow: var(--shadow-card);
-    border: 1px solid var(--color-border-gold);
-}
-
-.auth-card h1 {
-    text-align: center;
-    margin-bottom: 35px;
-    font-family: var(--font-display);
-    font-size: 55px;
-    color: var(--color-gold);
-}
-
-.auth-card form {
-    display: flex;
-    flex-direction: column;
-    gap: 18px;
-}
-
-.auth-card input {
-    padding: 14px;
-    border: 1px solid #ddd;
-    border-radius: var(--radius-md);
-    font-size: 16px;
-    font-family: var(--font-body);
-}
-
-.auth-card button {
-    background: var(--color-gold);
-    color: var(--color-white);
-    border: none;
-    padding: 14px;
-    border-radius: var(--radius-md);
-    cursor: pointer;
-    font-size: 16px;
-    font-family: var(--font-body);
-    transition: var(--transition);
-}
-
-.auth-card button:hover {
-    background: var(--color-gold-dark);
-}
-
-/* HOME ICON */
-.home-icon {
-    position: absolute;
-    top: 30px;
-    left: 40px;
-    color: var(--color-gold);
-    font-size: 28px;
-    transition: var(--transition);
-    text-decoration: none;
-}
-
-.home-icon:hover {
-    color: var(--color-gold-darker);
-    transform: scale(1.1);
-}
-
-/*----- MENU PAGE -----*/
-.menu-page {
+ 
+/* Pagine con padding in alto */
+.menu-page,
+.reservations-admin-page {
     min-height: 100vh;
     background: var(--color-bg);
     padding: 80px 20px;
 }
-
-.menu-page h1 {
-    text-align: center;
-    font-family: var(--font-display);
-    font-size: 90px;
-    color: var(--color-gold);
-    margin-bottom: 60px;
+ 
+/*----- CARDS -----*/
+.reservation-card,
+.auth-card,
+.dish-create-card {
+    background: var(--color-white);
+    padding: 50px;
+    border-radius: var(--radius-xl);
+    box-shadow: var(--shadow-card);
+    border: 1px solid var(--color-border-gold);
 }
-
+ 
+.reservation-card,
+.dish-create-card {
+    width: 100%;
+    max-width: 550px;
+}
+ 
+.auth-card {
+    width: 400px;
+}
+ 
+/*----- TITOLI (card / pagine) -----*/
+.reservation-card h1,
+.auth-card h1,
+.dish-create-card h1,
+.menu-page h1,
+.reservations-admin-page h1 {
+    font-family: var(--font-display);
+    color: var(--color-gold);
+    text-align: center;
+}
+ 
+.reservation-card h1        { font-size: 72px; margin-bottom: 40px; }
+.auth-card h1               { font-size: 55px; margin-bottom: 35px; }
+.dish-create-card h1        { font-size: 60px; margin-bottom: 35px; }
+.menu-page h1               { font-size: 90px; margin-bottom: 60px; }
+.reservations-admin-page h1 { font-size: 80px; margin-bottom: 60px; }
+ 
+/*----- FORM DELLE CARD -----*/
+.reservation-card form,
+.auth-card form,
+.dish-create-card form {
+    display: flex;
+    flex-direction: column;
+}
+ 
+.reservation-card form {
+    gap: 20px;
+}
+ 
+.auth-card form,
+.dish-create-card form {
+    gap: 18px;
+}
+ 
+/* Input / select / textarea */
+.reservation-card input,
+.reservation-card select,
+.reservation-card textarea,
+.auth-card input,
+.dish-create-card input,
+.dish-create-card select,
+.dish-create-card textarea {
+    padding: 14px;
+    font-size: 16px;
+    font-family: var(--font-body);
+}
+ 
+.reservation-card input,
+.reservation-card select,
+.reservation-card textarea {
+    border: 1px solid #d6d3d1;
+    border-radius: var(--radius-sm);
+    background: #fafafa;
+}
+ 
+.auth-card input,
+.dish-create-card input,
+.dish-create-card select,
+.dish-create-card textarea {
+    border: 1px solid #ddd;
+    border-radius: var(--radius-md);
+}
+ 
+.dish-create-card input,
+.dish-create-card select,
+.dish-create-card textarea {
+    background: #fafafa;
+}
+ 
+.reservation-card textarea,
+.dish-create-card textarea {
+    min-height: 120px;
+    resize: none;
+}
+ 
+/* Bottoni delle card */
+.reservation-card button,
+.auth-card button,
+.dish-create-card button {
+    background: var(--color-gold);
+    color: var(--color-white);
+    border: none;
+    padding: 14px;
+    cursor: pointer;
+    transition: var(--transition);
+}
+ 
+.reservation-card button,
+.auth-card button {
+    font-family: var(--font-body);
+}
+ 
+.reservation-card button {
+    border-radius: var(--radius-sm);
+    font-size: 17px;
+    font-weight: 600;
+}
+ 
+.auth-card button,
+.dish-create-card button {
+    border-radius: var(--radius-md);
+    font-size: 16px;
+}
+ 
+.reservation-card button:hover,
+.auth-card button:hover,
+.dish-create-card button:hover {
+    background: var(--color-gold-dark);
+}
+ 
+/*----- MENU PAGE -----*/
 .menu-buttons {
     display: flex;
     flex-wrap: wrap;
@@ -379,7 +382,7 @@ body {
     max-width: 1000px;
     margin: 0 auto 60px auto;
 }
-
+ 
 .menu-btn {
     background: var(--color-white);
     border: 1px solid var(--color-border-gold);
@@ -391,13 +394,13 @@ body {
     transition: var(--transition);
     min-width: 180px;
 }
-
+ 
 .menu-btn:hover {
     background: var(--color-gold);
     color: var(--color-white);
     transform: translateY(-3px);
 }
-
+ 
 .menu-category-content {
     display: none;
     max-width: 900px;
@@ -408,7 +411,7 @@ body {
     border: 1px solid var(--color-border-gold);
     box-shadow: var(--shadow-soft);
 }
-
+ 
 /*----- DISH ITEM -----*/
 .dish-item {
     display: flex;
@@ -418,24 +421,23 @@ body {
     border-bottom: 1px solid #eee;
     gap: 40px;
 }
-
+ 
 .dish-info {
     flex: 1;
 }
-
+ 
 .dish-info h3 {
     margin: 0;
     font-size: 24px;
     color: var(--color-text);
 }
-
+ 
 .dish-info p {
     margin-top: 6px;
     color: #666;
     max-width: 650px;
 }
-
-/* DISH ACTIONS */
+ 
 .dish-actions {
     display: flex;
     align-items: center;
@@ -444,18 +446,17 @@ body {
     min-width: 180px;
     white-space: nowrap;
 }
-
+ 
 .dish-actions form {
     margin: 0;
 }
-
+ 
 .dish-price {
     font-size: 22px;
     font-weight: bold;
     color: var(--color-gold);
 }
-
-/* DISH ICON */
+ 
 .dish-icon {
     border: none;
     background: none;
@@ -468,49 +469,69 @@ body {
     align-items: center;
     justify-content: center;
 }
-
-.dish-icon:hover {
-    color: var(--color-gold-darker);
-    transform: scale(1.1);
-}
-
+ 
 .delete-btn {
     padding: 0;
     margin: 0;
 }
-
-/*----- MESSAGES -----*/
+ 
+/*----- ICONE -----*/
+.home-icon {
+    position: absolute;
+    top: 30px;
+    left: 40px;
+    color: var(--color-gold);
+    font-size: 28px;
+    transition: var(--transition);
+    text-decoration: none;
+}
+ 
+.home-icon:hover,
+.dish-icon:hover {
+    color: var(--color-gold-darker);
+    transform: scale(1.1);
+}
+ 
+.fa-instagram {
+    font-size: 32px;
+    transition: var(--transition);
+}
+ 
+.fa-instagram:hover {
+    transform: scale(1.1);
+}
+ 
+/*----- MESSAGGI -----*/
+.success-message,
+.error-message {
+    margin: 30px auto;
+    padding: 18px;
+    border-radius: var(--radius-md);
+    font-family: var(--font-body);
+    transition: opacity 0.5s ease;
+}
+ 
 .success-message {
     max-width: 900px;
-    margin: 30px auto;
     background: #d1fae5;
     color: #065f46;
-    padding: 18px;
-    border-radius: var(--radius-md);
     border: 1px solid #10b981;
     text-align: center;
-    font-family: var(--font-body);
     font-weight: 500;
-    transition: opacity 0.5s ease;
 }
-
+ 
 .error-message {
     max-width: 550px;
-    margin: 30px auto;
     background: #fee2e2;
     color: #991b1b;
-    padding: 18px;
-    border-radius: var(--radius-md);
     border: 1px solid #ef4444;
-    font-family: var(--font-body);
-    transition: opacity 0.5s ease;
 }
-
+ 
 .error-message ul {
     margin: 0;
     padding-left: 20px;
 }
-
+ 
 /*----- ADMIN ADD DISH LINK -----*/
 .admin-add-link {
     position: absolute;
@@ -523,113 +544,70 @@ body {
     font-weight: 500;
     transition: var(--transition);
 }
-
+ 
 .admin-add-link:hover {
     color: var(--color-gold);
 }
-
-
-/*----------------TEST BLOCK-----------------*/
-
+ 
 /*----- ADMIN RESERVATIONS PAGE -----*/
-
-.reservations-admin-page {
-
-    min-height: 100vh;
-
-    background: var(--color-bg);
-
-    padding: 80px 20px;
-}
-
-.reservations-admin-page h1 {
-
-    text-align: center;
-
-    font-family: var(--font-display);
-
-    font-size: 80px;
-
-    color: var(--color-gold);
-
-    margin-bottom: 60px;
-}
-
 .reservations-container {
-
     max-width: 900px;
-
     margin: auto;
-
     display: flex;
-
     flex-direction: column;
-
     gap: 25px;
 }
-
-/* CARD */
-
+ 
 .reservation-admin-card {
-
-    background: white;
-
+    background: var(--color-white);
     border: 1px solid var(--color-border-gold);
-
     border-radius: var(--radius-xl);
-
     padding: 30px;
-
     box-shadow: var(--shadow-soft);
 }
-
-/* TOP */
-
+ 
 .reservation-top {
-
     display: flex;
-
     justify-content: space-between;
-
     align-items: center;
-
     margin-bottom: 20px;
 }
-
+ 
 .reservation-top h2 {
-
     margin: 0;
-
     color: var(--color-text);
-
     font-size: 28px;
 }
-
+ 
 .reservation-top span {
-
     color: var(--color-gold);
-
     font-weight: 600;
 }
-
-/* INFO */
-
+ 
 .reservation-info p {
-
     margin: 10px 0;
-
     color: #555;
-
     line-height: 1.6;
 }
-
-/* ACTIONS */
-
+ 
 .reservation-actions {
-
     margin-top: 20px;
-
     display: flex;
-
     justify-content: flex-end;
+}
+ 
+/*----- USER STATUS -----*/
+.user-status {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: var(--color-text);
+    font-family: var(--font-body);
+    font-size: 16px;
+    font-weight: 500;
+}
+ 
+.user-status i {
+    color: var(--color-gold);
+    font-size: 30px;
 }

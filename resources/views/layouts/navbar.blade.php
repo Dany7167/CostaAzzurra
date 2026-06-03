@@ -12,11 +12,8 @@
     </div>
 
     <div class="nav-links">
-
         <a href="/">Home</a>
-
         <a href="/dishes">Menù</a>
-
     </div>
 
     <div class="nav-right">
@@ -27,7 +24,6 @@
 
         @guest
             <a href="/login">Login</a>
-
             <a href="/register">Registrati</a>
         @endguest
 
@@ -56,6 +52,17 @@
         <a>
              Tel: +39 030 268 0614
         </a>
+
+        @auth
+        <div class="user-status">
+
+            <span>
+               <a>{{ Auth::user()->name }}</a>
+            </span>
+
+            <i class="fa-solid fa-circle-user"></i>
+        </div>
+        @endauth
 
     </div>
 </nav>

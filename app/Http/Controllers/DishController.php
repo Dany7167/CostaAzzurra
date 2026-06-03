@@ -67,7 +67,8 @@ class DishController extends Controller
         $request->validate([
             'name' => 'required|string|max:255',
             'description' => 'required',
-            'price' => 'required|numeric|min:0'
+            'price' => 'required|numeric|min:0',
+            'category' => 'required'
         ]);
 
         $dish = Dish::findOrFail($id);
@@ -75,7 +76,8 @@ class DishController extends Controller
         $dish->update([
             'name' => $request->name,
             'description' => $request->description,
-            'price' => $request->price
+            'price' => $request->price,
+            'category' => $request->category
         ]);
 
         return redirect()->route('dishes.index')

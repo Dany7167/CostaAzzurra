@@ -36,7 +36,7 @@
 
             <ul>
 
-                <li>Utente non trovato oppure password errata.</li>
+                <li>credenziali errate.</li>
 
             </ul>
 

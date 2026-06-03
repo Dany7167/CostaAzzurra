@@ -1,4 +1,11 @@
-<h1>Aggiungi Piatto</h1>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Aggiungi piatto</title>
+
+</head>
+
   @if ($errors->any())
     <div style="color:red; margin-bottom:15px;">
         <ul>
@@ -9,46 +16,62 @@
     </div>
     @endif
 
-<form action="{{ route('dishes.store') }}" method="POST">
-    @csrf
+@include('layouts.navbar')
 
-    <select name="category">
+<section class="dish-create-page">
 
-    <option value="Antipasti">Antipasti</option>
+    <div class="dish-create-card">
 
-    <option value="Primi">Primi</option>
+        <h1>Nuovo Piatto</h1>
 
-    <option value="Secondi">Secondi</option>
+        <form action="{{ route('dishes.store') }}"
+              method="POST">
 
-    <option value="Formaggi">Formaggi</option>
+            @csrf
 
-    <option value="Pizze">Pizze</option>
+            <input type="text"
+                   name="name"
+                   placeholder="Nome piatto"
+                   required>
 
-    <option value="Contorni">Contorni</option>
+            <textarea name="description"
+                      placeholder="Descrizione"
+                      required></textarea>
 
-    <option value="Dolci">Dolci</option>
+            <input type="number"
+                   step="0.01"
+                   name="price"
+                   placeholder="Prezzo"
+                   required>
 
-    <option value="Bevande">Bevande</option>
+            <select name="category" required>
 
-</select>
+                <option value="">Seleziona categoria</option>
 
-    <div>
-        <label>Nome</label>
-        <input type="text" name="name" required>
+                <option value="Antipasti">Antipasti</option>
+
+                <option value="Primi">Primi</option>
+
+                <option value="Secondi">Secondi</option>
+
+                <option value="Formaggi">Formaggi</option>
+
+                <option value="Pizze">Pizze</option>
+
+                <option value="Contorni">Contorni</option>
+
+                <option value="Bevande">Bevande</option>
+
+                <option value="Dolci">Dolci</option>
+
+            </select>
+
+            <button type="submit">
+                Aggiungi piatto
+            </button>
+
+        </form>
+
     </div>
 
-    <div>
-        <label>Descrizione</label>
-        <textarea name="description" required></textarea>
-    </div>
-
-    <div>
-      
-        <label>Prezzo</label>
-        <input type="number" step="0.01" name="price" required>
-    </div>
-
-    <button type="submit">
-        Salva
-    </button>
-</form>
+</section>
