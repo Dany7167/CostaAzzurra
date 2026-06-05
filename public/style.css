@@ -218,7 +218,6 @@ body {
 }
  
 /*----- PAGE LAYOUTS -----*/
-/* Pagine centrate (flex) */
 .reservation-page,
 .auth-page,
 .dish-create-page {
@@ -234,7 +233,6 @@ body {
     padding: 60px 20px;
 }
  
-/* Pagine con padding in alto */
 .menu-page,
 .reservations-admin-page {
     min-height: 100vh;
@@ -297,7 +295,6 @@ body {
     gap: 18px;
 }
  
-/* Input / select / textarea */
 .reservation-card input,
 .reservation-card select,
 .reservation-card textarea,
@@ -338,7 +335,6 @@ body {
     resize: none;
 }
  
-/* Bottoni delle card */
 .reservation-card button,
 .auth-card button,
 .dish-create-card button {

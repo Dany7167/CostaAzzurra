@@ -8,8 +8,8 @@
         {{ session('success') }}
 
     </div>
-
 @endif
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -43,7 +43,6 @@
         ];
     @endphp
 
-    <!-- BUTTON CATEGORIES -->
 
     <div class="menu-buttons">
 
@@ -60,7 +59,6 @@
 
     </div>
 
-    <!-- MENU CONTENT -->
 
     @foreach($categories as $category)
 
@@ -71,7 +69,6 @@
 
                 <div class="dish-item">
 
-    <!-- LEFT -->
 
     <div class="dish-info">
 
@@ -80,8 +77,6 @@
         <p>{{ $dish->description }}</p>
 
     </div>
-
-    <!-- RIGHT -->
 
     <div class="dish-actions">
 

@@ -18,13 +18,7 @@
     </div>
 
 @endif
-<!--
-@if(session('success'))
-    <p style="color:green;">
-        {{ session('success') }}
-    </p>
-@endif
--->
+
 @if(session('success'))
 
    <div class="success-message"
@@ -53,21 +47,20 @@
 
             @csrf
 
-            <!-- Nome -->
             <input type="text"
                    name="name"
-                   placeholder="Nome">
+                   placeholder="Nome"
+                   value="{{ old('name') }}">
 
-            <!-- Email -->
             <input type="email"
                    name="email"
-                   placeholder="Email">
+                   placeholder="Email"
+                   value="{{ old('email') }}">
 
-            <!-- Data -->
             <input type="date"
-                   name="date">
+                   name="date"
+                   value="{{ old('date') }}">
 
-            <!-- Orario -->
             <select name="time">
 
                 <option value="">Seleziona orario</option>
@@ -90,12 +83,11 @@
 
             </select>
 
-            <!-- Persone -->
             <input type="number"
                    name="guests"
-                   placeholder="Numero persone">
+                   placeholder="Numero persone"
+                   value="{{ old('guests') }}">
 
-            <!-- Note -->
             <textarea name="notes"
                       placeholder="Eventuali note"></textarea>
 

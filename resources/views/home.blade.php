@@ -40,7 +40,6 @@
 
 <section class="info-section">
 
-    <!-- Left Side -->
     <div class="info-text">
 
         <h2>Dove siamo</h2>
@@ -64,7 +63,6 @@
 
     </div>
 
-    <!-- Right Side -->
     <div class="map-container">
 
         <iframe
