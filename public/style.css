@@ -637,14 +637,6 @@ body {
 }
 
 
-
-
-
-
-
-
-/*----------------TEST---------------*/
-
 /* ===== Menù a due colonne ===== */
 .menu-layout {
     display: flex;
@@ -714,18 +706,3 @@ body {
     flex: 1;
 }
 
-/* su mobile: categorie sopra, piatti sotto */
-@media (max-width: 768px) {
-    .menu-layout {
-        flex-direction: column;
-    }
-    .menu-sidebar {
-        width: 100%;
-        flex-direction: row;
-        flex-wrap: wrap;
-        position: static;
-    }
-    .menu-sidebar .menu-btn {
-        width: auto;
-    }
-}
