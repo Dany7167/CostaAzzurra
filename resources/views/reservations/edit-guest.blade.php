@@ -1,5 +1,13 @@
 @include('layouts.navbar')
+@if(session('success'))
 
+        <div class="success-message" id="success-message">
+
+            {{ session('success') }}
+
+        </div>
+
+    @endif
 <section class="reservation-page">
 
     <div class="reservation-card">
