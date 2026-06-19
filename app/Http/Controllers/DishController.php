@@ -15,16 +15,25 @@ class DishController extends Controller
             'name' => 'required|string|max:255',
             'description' => 'required',
             'price' => 'required|numeric|min:0|max:99999.99',
+            'image' => 'nullable|image|max:2048',
         ], [
             'price.max' => 'Il prezzo non può superare 99999.99 €',
+            'price.min' => 'Il prezzo deve essere maggiore di 0',
+            'image.image' => 'Il file deve essere un\'immagine',
+            'image.max' => 'L\'immagine non può superare 2 MB',
             ]);
 
+            $path = null;
+            if ($request->hasFile('image')) {
+            $path = $request->file('image')->store('dishes', 'public');
+            }
 
         Dish::create([
             'name' => $request->name,
             'description' => $request->description,
             'price' => $request->price,
-            'category' => $request->category
+            'category' => $request->category,
+            'image' => $path
         ]);
 
         return redirect()
@@ -68,17 +77,24 @@ class DishController extends Controller
             'name' => 'required|string|max:255',
             'description' => 'required',
             'price' => 'required|numeric|min:0',
-            'category' => 'required'
+            'category' => 'required',
+            'image' => 'nullable|image|max:2048',
         ]);
 
         $dish = Dish::findOrFail($id);
 
-        $dish->update([
-            'name' => $request->name,
-            'description' => $request->description,
-            'price' => $request->price,
-            'category' => $request->category
-        ]);
+        $data = [
+        'name' => $request->name,
+        'description' => $request->description,
+        'price' => $request->price,
+        'category' => $request->category
+        ];
+
+        if ($request->hasFile('image')) {
+            $data['image'] = $request->file('image')->store('dishes', 'public');
+        }
+
+        $dish->update($data);
 
         return redirect()->route('dishes.index')
         ->with('success', 'Piatto aggiornato con successo!');

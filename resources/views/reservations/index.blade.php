@@ -6,11 +6,7 @@
 
 @include('layouts.navbar')
 
-<section class="reservations-admin-page">
-
-    <h1>Prenotazioni</h1>
-
-    @if(session('success'))
+ @if(session('success'))
 
         <div class="success-message" id="success-message">
 
@@ -19,6 +15,10 @@
         </div>
 
     @endif
+
+<section class="reservations-admin-page">
+
+    <h1>Prenotazioni</h1>
 
     <div class="reservations-container">
 

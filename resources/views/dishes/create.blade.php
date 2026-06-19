@@ -1,3 +1,4 @@
+@include('layouts.navbar')
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -5,7 +6,7 @@
     <title>Aggiungi piatto</title>
 
 </head>
-
+<!--
   @if ($errors->any())
     <div style="color:red; margin-bottom:15px;">
         <ul>
@@ -15,8 +16,37 @@
         </ul>
     </div>
     @endif
+-->
+@if ($errors->any())
 
-@include('layouts.navbar')
+    <div class="error-message"
+         id="error-message">
+
+        <ul>
+
+            @foreach ($errors->all() as $error)
+
+                <li>{{ $error }}</li>
+
+            @endforeach
+
+        </ul>
+
+    </div>
+
+@endif
+
+@if(session('success'))
+
+   <div class="success-message"
+        id="success-message">
+
+        {{ session('success') }}
+
+    </div>
+
+@endif
+
 
 <section class="dish-create-page">
 
@@ -25,7 +55,8 @@
         <h1>Nuovo Piatto</h1>
 
         <form action="{{ route('dishes.store') }}"
-              method="POST">
+              method="POST"
+              enctype="multipart/form-data">
 
             @csrf
 
@@ -66,6 +97,10 @@
 
             </select>
 
+        <input type="file"
+         name="image"
+         accept="image/*">
+         
             <button type="submit">
                 Aggiungi piatto
             </button>
@@ -75,3 +110,41 @@
     </div>
 
 </section>
+
+<script>
+
+    setTimeout(() => {
+
+        const message = document.getElementById('error-message');
+
+        if(message) {
+
+            message.style.opacity = '0';
+
+            setTimeout(() => {
+                message.remove();
+            }, 500);
+        }
+
+    }, 3000);
+
+</script>
+
+<script>
+
+    setTimeout(() => {
+
+        const message = document.getElementById('success-message');
+
+        if(message) {
+
+            message.style.opacity = '0';
+
+            setTimeout(() => {
+                message.remove();
+            }, 500);
+        }
+
+    }, 3000);
+
+</script>

@@ -12,7 +12,8 @@
         <h1>Modifica Piatto</h1>
 
         <form action="{{ route('dishes.update', $dish->id) }}"
-              method="POST">
+              method="POST"
+              enctype="multipart/form-data">
 
             @csrf
             @method('PUT')
@@ -69,6 +70,10 @@
                 </option>
 
             </select>
+
+            <input type="file"
+            name="image"
+            accept="image/*">
 
             <button type="submit">
                 Salva modifiche

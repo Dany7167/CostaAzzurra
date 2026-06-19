@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 use App\Models\Reservation;
 
@@ -42,6 +42,7 @@ class ReservationController extends Controller
             ]);
 
         Reservation::create([
+            'user_id' => Auth::id(),
             'name' => $request->name,
             'email' => $request->email,
             'date' => $request->date,
@@ -72,4 +73,64 @@ class ReservationController extends Controller
             ->with('success', 'Prenotazione eliminata con successo!');
     }
 
+    public function myReservations()
+    {
+        $reservations = Reservation::where('user_id', auth()->id())
+                                ->latest()
+                                ->get();
+
+        return view('reservations.reservation-guest', compact('reservations'));
+    }
+
+    public function editMyReservation(Reservation $reservation)
+    {
+        if ($reservation->user_id != auth()->id()) {
+            abort(403);
+        }
+
+        return view('reservations.edit-guest', compact('reservation'));
+    }
+
+    public function updateMyReservation(
+    Request $request,
+    Reservation $reservation
+    )
+    {
+    if ($reservation->user_id != auth()->id()) {
+        abort(403);
+    }
+
+    $request->validate([
+        'date' => 'required|date|after_or_equal:today',
+        'time' => 'required',
+        'guests' => 'required|integer|min:1|max:15',
+        'notes' => 'nullable',
+    ]);
+
+    $reservation->update([
+        'date' => $request->date,
+        'time' => $request->time,
+        'guests' => $request->guests,
+        'notes' => $request->notes,
+    ]);
+
+    return redirect()
+        ->route('reservations.mine')
+        ->with('success', 'Prenotazione aggiornata.');
+    }
+
+    public function destroyMyReservation(
+    Reservation $reservation
+    )
+    {
+    if ($reservation->user_id != auth()->id()) {
+        abort(403);
+    }
+
+    $reservation->delete();
+
+    return redirect()
+        ->route('reservations.mine')
+        ->with('success', 'Prenotazione eliminata.');
+    }  
 }

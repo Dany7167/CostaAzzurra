@@ -49,6 +49,18 @@
         </a>
         @endunlessrole
 
+        @auth
+
+    @unlessrole('admin')
+
+        <a href="{{ route('reservations.mine') }}">
+            Le mie prenotazioni
+        </a>
+
+    @endunlessrole
+
+        @endauth
+        
         <a>
              Tel: +39 030 268 0614
         </a>

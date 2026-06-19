@@ -35,3 +35,27 @@ Route::middleware([
         return redirect('/');
     })->name('dashboard');
 });
+
+Route::middleware(['auth'])->group(function () {
+
+    Route::get(
+        '/reservation-guest',
+        [ReservationController::class, 'myReservations']
+    )->name('reservations.mine');
+
+    Route::get(
+    '/my-reservations/{reservation}/edit',
+    [ReservationController::class, 'editMyReservation']
+    )->name('reservations.edit.mine');
+
+Route::put(
+    '/my-reservations/{reservation}',
+    [ReservationController::class, 'updateMyReservation']
+    )->name('reservations.update.mine');
+
+Route::delete(
+    '/my-reservations/{reservation}',
+    [ReservationController::class, 'destroyMyReservation']
+    )->name('reservations.destroy.mine');
+
+});
